@@ -21,7 +21,8 @@ public class ExceptionTest2 {
             /*
              * if( i == 1 ) break; } catch (ArrayIndexOutOfBoundsException ae) {
              * System.out.println("범위를 넘었습니다."); } finally { System.out.println("항상 수행~"); }
-             */ i++;
+             */
+            i++;
         }
         System.out.println("Method End.." + i);
     }

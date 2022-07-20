@@ -1,11 +1,16 @@
 package com.ssafy.oop3_4.generic;
 
 public class StringContainer {
-    private String obj;
-    
-    public StringContainer(){}
+	private String obj;
 
-    public String getObj() { return obj; }
+	public StringContainer() {
+	}
 
-    public void setObj(String t) { obj = t; }
+	public String getObj() {
+		return obj;
+	}
+
+	public void setObj(String t) {
+		obj = t;
+	}
 }

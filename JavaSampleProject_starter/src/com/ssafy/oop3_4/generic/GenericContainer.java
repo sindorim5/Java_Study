@@ -1,12 +1,15 @@
 package com.ssafy.oop3_4.generic;
 
 public class GenericContainer<T> {
-    private T obj;
+	private T obj;
 
-    public GenericContainer(){}
+	public GenericContainer() {
+	}
 
-    public T getObj() { return obj; }
+	public T getObj() {
+		return obj;
+	}
 
-    public void setObj(T t) { obj = t; }
+	public void setObj(T t) { obj = t; }
     
 }

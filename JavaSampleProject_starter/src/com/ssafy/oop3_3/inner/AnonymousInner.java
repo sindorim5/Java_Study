@@ -7,6 +7,13 @@ public class AnonymousInner {
 
             public void fold() { /* */ }
         };
+//      같은 방법
+//    	class TempClass implements Folder {
+//          public void open() { /* */ }
+//
+//          public void fold() { /* */ }
+//    	}
+//    	return new TempClass();
     }
 }
 

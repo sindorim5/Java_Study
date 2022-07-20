@@ -29,7 +29,7 @@ class MethodTest {
 			test1 = 100;
 		}
 
-		System.out.println(test);
+//		System.out.println(test);
 		System.out.println(test1);
 
 	}
