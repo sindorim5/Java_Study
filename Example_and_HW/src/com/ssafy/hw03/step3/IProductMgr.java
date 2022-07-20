@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 interface IProductMgr {
 
-	abstract int indexOf(int prdNum);
-
 	abstract void addProduct(Product prd);
 
 	abstract void deleteProduct(int prdNum) throws ProductNotFoundException;
@@ -31,7 +29,7 @@ interface IProductMgr {
 	abstract ArrayList<Product> searchByName(String prdName) throws ProductNotFoundException;
 
 	// 전체 재고 상품 금액 구하기
-	abstract int getAllPrice(ArrayList<Product> prdList);
+	abstract int getAllPrice();
 
 	// 전체 재고 상품 수 구하기
 	abstract int getAllQuantity();

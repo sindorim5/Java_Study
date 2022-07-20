@@ -158,5 +158,4 @@ public class ProductMgrImpl implements IProductMgr {
 		System.out.println(productToBuy);
 	}
 	
-	
 }
