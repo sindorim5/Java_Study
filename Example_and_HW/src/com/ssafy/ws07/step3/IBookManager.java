@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public interface IBookManager {
 	abstract void add(Book book);
 
-	abstract void remove(String isbn);
+	abstract void remove(String isbn) throws ISBNNotFoundException;
 
 	abstract ArrayList<Book> getList();
 
@@ -17,8 +17,8 @@ public interface IBookManager {
 
 	abstract int getTotalPrice();
 
-	abstract void sell(String isbn, int quantity) throws QuantityException;
+	abstract void sell(String isbn, int quantity) throws QuantityException, ISBNNotFoundException;
 
-	abstract void buy(String isbn, int quantity);
+	abstract void buy(String isbn, int quantity) throws ISBNNotFoundException;
 
 }

@@ -3,22 +3,19 @@ package com.ssafy.ws07.step3;
 import java.util.ArrayList;
 
 public class BookManagerImpl implements IBookManager {
-	private int MAX_SIZE = 100;
 	private ArrayList<Book> books;
-	private int size = 0;
 
 	public BookManagerImpl() {
-		books = new ArrayList<>(MAX_SIZE);
+		books = new ArrayList<>();
 	}
 
 	public void add(Book book) {
 		books.add(book);
-		size++;
 	}
 
-	public void remove(String isbn) {
+	public void remove(String isbn) throws ISBNNotFoundException {
 		Book b = searchByIsbn(isbn);
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < books.size(); i++) {
 			if (books.get(i).equals(b)) {
 				books.remove(i);
 			}
@@ -29,18 +26,18 @@ public class BookManagerImpl implements IBookManager {
 		return books;
 	}
 
-	public Book searchByIsbn(String isbn) {
-		for (int i = 0; i < size; i++) {
+	public Book searchByIsbn(String isbn) throws ISBNNotFoundException {
+		for (int i = 0; i < books.size(); i++) {
 			if (isbn.equals(books.get(i).getIsbn())) {
 				return books.get(i);
 			}
 		}
-		return new ;	// new exception
+		throw new ISBNNotFoundException(isbn);
 	}
 
 	public ArrayList<Book> searchByTitle(String title) {
-		ArrayList<Book> searchedBooks = new ArrayList<Book>(size);
-		for (int i = 0; i < size; i++) {
+		ArrayList<Book> searchedBooks = new ArrayList<Book>();
+		for (int i = 0; i < books.size(); i++) {
 			if (books.get(i).getTitle().contains(title)) {
 				searchedBooks.add(books.get(i));
 			}
@@ -49,9 +46,9 @@ public class BookManagerImpl implements IBookManager {
 	}
 
 	public ArrayList<Book> getBooks() {
-		ArrayList<Book> searchedBooks = new ArrayList<Book>(size);
-		for (int i = 0; i < size; i++) {
-			if (books.get(i) instanceof Book) {
+		ArrayList<Book> searchedBooks = new ArrayList<Book>();
+		for (int i = 0; i < books.size(); i++) {
+			if !(books.get(i) instanceof Magazine) {
 				searchedBooks.add(books.get(i));
 			}
 		}
@@ -59,8 +56,8 @@ public class BookManagerImpl implements IBookManager {
 	}
 
 	public ArrayList<Book> getMagazines() {
-		ArrayList<Book> searchedBooks = new ArrayList<Book>(size);
-		for (int i = 0; i < size; i++) {
+		ArrayList<Book> searchedBooks = new ArrayList<Book>();
+		for (int i = 0; i < books.size(); i++) {
 			if (books.get(i) instanceof Magazine) {
 				searchedBooks.add(books.get(i));
 			}
@@ -70,7 +67,7 @@ public class BookManagerImpl implements IBookManager {
 
 	public int getTotalPrice() {
 		int sum = 0;
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < books.size(); i++) {
 			sum += books.get(i).getPrice();
 		}
 		return sum;
@@ -78,40 +75,25 @@ public class BookManagerImpl implements IBookManager {
 
 	public double getPriceAvg() {
 		int sum = getTotalPrice();
-		return sum / size;
+		return sum / books.size();
 	}
 
-	public void sell(String isbn, int quantity) throws QuantityException {
+	public void sell(String isbn, int quantity) throws QuantityException, ISBNNotFoundException {
 		Book bookToSell;
-		try {
-			bookToSell = searchByIsbn(isbn);
-			if (bookToSell != null) {
-				int q = bookToSell.getQuantity();
-				if (quantity > q) {
-					throw new QuantityException();	// runtime exception
-				} else {
-					bookToSell.setQuantity(q - quantity);
-					System.out.println(bookToSell);
-				}
-			}
-		} catch (ISBNNotFoundException e) {
-			e.printStackTrace();
+		bookToSell = searchByIsbn(isbn);
+		int q = bookToSell.getQuantity();
+		if (quantity > q) {
+			throw new QuantityException(); // runtime exception
+		} else {
+			bookToSell.setQuantity(q - quantity);
+			System.out.println(bookToSell);
 		}
-
 	}
 
-	public void buy(String isbn, int quantity) {
+	public void buy(String isbn, int quantity) throws ISBNNotFoundException {
 		Book bookToBuy;
-		try {
-			bookToBuy = searchByIsbn(isbn);
-			if (bookToBuy != null) {
-				int q = bookToBuy.getQuantity();
-				bookToBuy.setQuantity(q + quantity);
-			}
-		} catch (ISBNNotFoundException e) {
-			
-			e.printStackTrace();
-		}
-
+		bookToBuy = searchByIsbn(isbn);
+		int q = bookToBuy.getQuantity();
+		bookToBuy.setQuantity(q + quantity);
 	}
 }
