@@ -11,7 +11,7 @@ public class ObjectInputTest {
     
     public static void main(String[] args) {
         File target = new File("sample_folder" + File.separator + "SSAFY" + File.separator + "objPerson.dat");
-        PersonObject person = new PersonObject("홍길동", 20, "111111-2222222", "hong", "1234");
+//        PersonObject person = new PersonObject("홍길동", 20, "111111-2222222", "hong", "1234");
         try {
     
 //            // 객체 로딩

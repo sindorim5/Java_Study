@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class PersonObject implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 83425905634L;
     private String name;
     private int age;
     private transient String ssn;

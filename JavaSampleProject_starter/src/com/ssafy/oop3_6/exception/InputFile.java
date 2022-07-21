@@ -4,7 +4,7 @@ import java.io.*;
 
 class InputFile {
 
-    public static void main(String[] a) {
+	public static void main(String[] a) {
         String fileName = "data.txt";
         BufferedReader in = null;
         StringBuffer sb = new StringBuffer();

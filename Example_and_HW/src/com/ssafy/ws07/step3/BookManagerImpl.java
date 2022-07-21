@@ -48,7 +48,7 @@ public class BookManagerImpl implements IBookManager {
 	public ArrayList<Book> getBooks() {
 		ArrayList<Book> searchedBooks = new ArrayList<Book>();
 		for (int i = 0; i < books.size(); i++) {
-			if !(books.get(i) instanceof Magazine) {
+			if (!(books.get(i) instanceof Magazine)) {
 				searchedBooks.add(books.get(i));
 			}
 		}

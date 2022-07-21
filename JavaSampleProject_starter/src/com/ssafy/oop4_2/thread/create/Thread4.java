@@ -34,8 +34,9 @@ public class Thread4 {
 //        }
 //        
 //        Runnable r = new BRunnable();
+//        Thread t4 = new Thread(r);
 
-        //////////////
+        // 줄인 버전
 //        Runnable r = new Runnable() {
 //        public void run() {}
 //        };
@@ -43,6 +44,7 @@ public class Thread4 {
 //        Thread t3 = new Thread(r);
 //        t3.start();
 
+        // 더 줄인 버전
         new Thread(new Runnable() {
             public void run() { 
                 
