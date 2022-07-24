@@ -20,7 +20,7 @@ public class ProductMgrImpl implements IProductMgr {
 		return instance;
 	}
 
-	public ProductMgrImpl() {
+	private ProductMgrImpl() {
 		System.out.println("********************불러온 상품 전체 목록********************");
 		Thread t = new Thread(() -> {
 			loadData();

@@ -1,12 +1,19 @@
 package com.java.second;
 
-import com.ssafy.ws05.step3.Book;
-
 public class ProductMgr {
 	private Product[] productList;
 	private int productIdx = 0;
 
-	ProductMgr() {
+	private static ProductMgr instance;
+	
+	public static ProductMgr getInstance() {
+	    if (instance == null) {
+	        instance = new ProductMgr();
+	    }
+	    return instance;
+	}
+	
+	private ProductMgr() {
 		productList = new Product[1000];
 	}
 

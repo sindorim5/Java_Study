@@ -3,7 +3,7 @@ package com.java.second;
 public class ProductTest {
 
 	public static void main(String[] args) {
-		ProductMgr mgr = new ProductMgr();
+		ProductMgr mgr = ProductMgr.getInstance();
 		ProductTest test = new ProductTest();
 
 		Product p1 = new Product(689, "Galaxy S21", 50, 100);

@@ -5,7 +5,7 @@ public class Product {
 	private String productName;
 	private int price;
 	private int quantity;
-
+	
 	public Product() {
 
 	}
