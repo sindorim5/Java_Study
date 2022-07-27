@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SSAFY - 글작성</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script type="text/javascript">
+	    window.addEventListener('DOMContentLoaded', function() {
+	        document.getElementById('writeBtn').onclick = function() {
+	            let isbn = document.getElementById("isbn").value;
+	            let title = document.getElementById("title").value;
+	            let author = document.getElementById("author").value;
+	            let price = document.getElementById("price").value;
+	            let desc = document.getElementById("desc").value;
+	            if(isbn == ""){
+	                alert("ISBN을 입력하세요.");
+	            }else if(title == ""){
+	                alert("제목을 입력하세요.");
+	            }else if(author == ""){
+	                alert("저자를 입력하세요.");
+	            }else if(price == 0) 
+	            	alert("가격을 입력하세요.");
+	            }else if(desc == ""){
+	            	alert("설명을 입력하세요.")
+	            }
+	        	else{
+	                document.getElementById('writeform').submit();
+	            }
+	        }
+	    });
+    </script>
+</head>
+<body>
+
+<div class="container" align="center">
+    <div class="col-lg-6" align="center">
+        <h1> SSAFY 도서 관리</h1>
+      <h2> 도서 등록 </h2>
+        <form id="writeform" method="post" action="regist_result.jsp">
+            <div class="form-group" align="left">
+                <label for="isbn">도서번호:</label>
+                <input type="text" class="form-control" id="isbn" name="isbn">
+            </div>
+            <div class="form-group" align="left">
+                <label for="title">제목:</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group" align="left">
+                <label for="author">저자:</label>
+                <input type="text" class="form-control" id="author" name="author">
+            </div>
+                  <div class="form-group" align="left">
+                <label for="price">가격:</label>
+                <input type="number" min="0" step="500" class="form-control" id="price" name="price">
+            </div>
+            <div class="form-group" align="left">
+                <label for="desc">설명:</label>
+                <textarea class="form-control" rows="5" id="desc" name="desc"></textarea>
+            </div>
+            <button type="button" id="writeBtn" class="btn btn-primary">등록</button>
+            <button type="reset" class="btn btn-warning">취소</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+  
