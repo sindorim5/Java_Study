@@ -1,0 +1,288 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* 상단 Header */
+.header {
+  height: 70px;
+  /*box-shadow: offset-x | offset-y | blur-radius | color */
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header > .nav {
+  position: relative;
+  margin: auto;
+  max-width: 1200px;
+  height: 70px;
+}
+
+.header_nav_home {
+  font-size: 30px;
+  font-weight: bold;
+  color: mediumpurple;
+  float: left;
+  margin-left: 20px;
+  line-height: 70px;
+  height: 70px;
+}
+
+.header_nav_notice {
+  font-size: 15px;
+  font-weight: bold;
+  color: darkgray;
+  margin-left: 20px;
+  line-height: 70px;
+  height: 70px;
+}
+
+.header_nav_menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.header_nav_menuitem {
+  float: left;
+
+  margin-left: 10px;
+  line-height: 70px;
+  height: 70px;
+}
+
+.nav_link {
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+}
+
+/* 중앙 Contents Start */
+.content {
+  max-width: 1200px;
+  margin: 10px auto;
+}
+
+/* 왼쪽 Contents Start */
+.content_left {
+  float: left;
+  width: 20%;
+}
+
+.profile {
+  margin-left: 10px;
+}
+
+.profile_img {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+}
+
+.store_title {
+  margin: 5px;
+}
+
+.store_display {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: darkgray;
+  padding: 10px;
+}
+
+.store_area {
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.store_item_sub {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 40px;
+  padding: auto;
+}
+
+.store_item_sub > ul > li {
+  margin-bottom: 10px;
+}
+
+.store_title > ul {
+  margin-top: 10px;
+}
+
+.store_title > ul > li {
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: lightgray;
+}
+
+.vote {
+  margin: 0px 10px;
+  border: 5px solid lightgray;
+  border-radius: 5px;
+  height: auto;
+}
+
+.vote_title {
+  font-weight: bold;
+  color: #6a6b6d;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.vote_question {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 5px;
+}
+
+.vote_answer {
+  margin: 0px 5px;
+}
+
+.vote_answer > ul > li > img {
+  width: 50px;
+  height: 50px;
+}
+
+.vote_button {
+  float: right;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.button {
+  font-size: 12px;
+}
+
+.button.btn_primary {
+  color: white;
+  background-color: navy;
+}
+
+.vote_date {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 5px;
+}
+
+/* 중앙 Content Start */
+.content_body {
+  float: right;
+  width: 75%;
+}
+
+.menu {
+  float: left;
+  width: 850px;
+  margin-bottom: 5px;
+}
+
+.menu > ul > li {
+  float: left;
+  width: 180px;
+  border: 1px solid gray;
+  margin: 10px 5px 10px;
+  padding: 10px;
+}
+
+.menu_item_img > img {
+  width: 180px;
+}
+
+.menu_item_info {
+  font-size: 15px;
+  text-align: center;
+  margin: 5px;
+}
+
+.article {
+  display: flex;
+  width: 850px;
+}
+
+.table {
+  width: 380px;
+  height: 150px;
+  margin-top: 5px;
+  border-collapse: collapse;
+}
+
+.table > thead {
+  height: 30px;
+}
+
+.table td {
+  padding-left: 10px;
+}
+
+.article_popular {
+  width: 45%;
+  margin: 10px;
+}
+
+.table.table_striped > tbody > tr:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.table.table_striped > tbody tr:hover {
+  background-color: darkgray;
+}
+
+.article_new {
+  width: 45%;
+  margin: 10px;
+}
+
+.table.table_bordered.table_hover {
+  border: 1px solid gray;
+}
+
+.table.table_bordered.table_hover > tbody tr:hover {
+  background-color: bisque;
+}
+
+.table.table_bordered.table_hover td {
+  border: 1px solid gray;
+}
+
+/* footer */
+.footer {
+  clear: both;
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 1200px;
+  height: 70px;
+}
+
+.footer > ul > li {
+  display: inline-block;
+  margin-right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 12px;
+  color: darkgray;
+}
+
+.ssafyCorp {
+  font-weight: bold;
+  color: black;
+}

@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* 상단 Header */
+.header {
+  height: 70px;
+  /*box-shadow: offset-x | offset-y | blur-radius | color */
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header > .nav {
+  position: relative;
+  margin: auto;
+  max-width: 1200px;
+  height: 70px;
+}
+
+#logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: mediumpurple;
+  cursor: pointer;
+  float: left;
+  margin-left: 20px;
+  line-height: 70px;
+  height: 70px;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.menu > li {
+  float: left;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.menu > li:last-child {
+  margin-right: 10px;
+}
+
+.menu-item {
+  color: darkgray;
+}
+
+/* 마우스 올라갔을 때 */
+.menu-item:hover {
+  color: mediumpurple;
+}
+
+/* content */
+.content {
+  max-width: 1200px;
+  margin: 10px auto;
+}
+
+.content-left {
+  float: left;
+  width: 25%;
+}
+
+.content-left-profile {
+  margin: 10px;
+  height: 150px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.content-left-poll {
+  margin: 10px;
+  height: 300px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.content-section {
+  float: right;
+  width: 75%;
+}
+
+.content-section-article {
+  max-width: 900px;
+  height: 150px;
+  border: 1px solid darkblue;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+}
+
+/* 하단 Footer */
+.footer {
+  clear: both;
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 1200px;
+  height: 70px;
+}
+
+.footer > ul {
+  float: right;
+}
+
+.footer > ul > li {
+  display: inline-block;
+  margin-right: 10px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 12px;
+  color: darkgray;
+}

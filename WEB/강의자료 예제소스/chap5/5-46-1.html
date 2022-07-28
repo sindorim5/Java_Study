@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Position Property(float)</title>
+
+    <style type="text/css">
+      .output {
+        background: lightgray;
+        font: 12px/1.5em Verdana;
+        font-family: "Verdana", "gulim", "굴림", "굴림체";
+        padding: 10px;
+        text-align: justify;
+        height: 200px;
+      }
+  	  #div1 { width: 100px; height: 100px; background: orange; float: left; }
+    </style>
+  </head>
+  <body>
+    <div class="output">
+	<!-- float:left 속성이 생기면, 그 밑에 있는 요소는 float 요소의 오른쪽 공간을 채우기 위해서 이동하는 것이 기본동작.
+	이걸 이동하지 않도록 설정하는것이 clear속성이다.  --> 
+      <div id="div1">Block-Level<br />float: left</div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+	  
+      <div style="clear:both">float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+      <div>float test!!! float test!!! float test!!! float test!!! float test!!! </div>
+
+    </div>
+  </body>
+</html>
