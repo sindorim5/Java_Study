@@ -16,10 +16,10 @@
       <div>
         <h1 class="underline">도서 목록</h1>
         <div style="text-align: right">
-          <button>도서 등록</button>
+          <button @click="moveCreate()">도서 등록</button>
         </div>
         <div>
-          <table>
+          <table style="text-align: center">
             <colgroup>
               <col style="width: 5%" />
               <col style="width: 20%" />
@@ -37,12 +37,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(book, index) in books" @click="getIndex(book.userIsbn);">
+              <tr v-for="(book, index) in books">
                 <td>{{index + 1}}</td>
-                <td>{{book.userIsbn}}</td>
-                <td>{{book.userTitle}}</td>
-                <td>{{book.userAuthor}}</td>
-                <td>{{book.userPrice}}</td>
+                <td>{{book.isbn | bookISBN }}</td>
+                <td @click="moveView(book.isbn);">{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.price}}원</td>
               </tr>
             </tbody>
           </table>
@@ -51,6 +51,10 @@
       </div>
     </div>
     <script>
+      Vue.filter("bookISBN", (value) => {
+        if (!value || !(value.length === 10 || value.length === 11)) return value;
+        return value.replace(/^(\d{3})(\d{3,4})(\d{4})/g, "$1-$2-$3");
+      });
       new Vue({
         el: "#app",
         name: "list",
@@ -68,11 +72,11 @@
           }
         },
         methods: {
-          getIndex(isbn) {
-            this.moveView(isbn);
-          },
           moveView(isbn) {
             location.href = "view.html?isbn=" + isbn;
+          },
+          moveCreate() {
+            location.href = "create.html";
           },
         },
       });

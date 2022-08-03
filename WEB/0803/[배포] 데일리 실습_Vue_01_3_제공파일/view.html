@@ -17,18 +17,18 @@
         <h1 class="underline">SSAFY 도서 정보</h1>
         <div class="regist_form">
           <label for="isbn">도서번호</label>
-          <div class="view">{{book.userIsbn}}</div>
+          <div class="view">{{book.isbn}}</div>
           <label for="title">도서명</label>
-          <div class="view">{{book.userTitle}}</div>
+          <div class="view">{{book.title}}</div>
           <label for="author">저자</label>
-          <div class="view">{{book.userAuthor}}</div>
+          <div class="view">{{book.author}}</div>
           <label for="price">가격</label>
-          <div class="view">{{book.userPrice}}</div>
+          <div class="view">{{book.price}}</div>
           <label for="content">설명</label>
-          <div class="view">{{book.userContent}}</div>
+          <div class="view">{{book.content}}</div>
           <div style="padding-top: 15px">
-            <a :href="'modify.html?isbn=' + book.userIsbn" class="btn">수정</a>
-            <a href="#" class="btn">삭제</a>
+            <a :href="'modify.html?isbn=' + book.isbn" class="btn">수정</a>
+            <a :href="'delete.html?isbn=' + book.isbn" class="btn">삭제</a>
             <a href="./list.html" class="btn">목록</a>
           </div>
         </div>
