@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서관리</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">
+        <a href="index.html"> <img src="./img/ssafy_logo.png" id="ssafy_logo" /></a>
+        <p class="logo">도서관리</p>
+      </div>
+      <div class="regist">
+        <h1 class="underline">SSAFY 도서 정보</h1>
+        <div class="regist_form">
+          <label for="isbn">도서번호</label>
+          <div class="view">{{book.userIsbn}}</div>
+          <label for="title">도서명</label>
+          <div class="view">{{book.userTitle}}</div>
+          <label for="author">저자</label>
+          <div class="view">{{book.userAuthor}}</div>
+          <label for="price">가격</label>
+          <div class="view">{{book.userPrice}}</div>
+          <label for="content">설명</label>
+          <div class="view">{{book.userContent}}</div>
+          <div style="padding-top: 15px">
+            <a :href="'modify.html?isbn=' + book.userIsbn" class="btn">수정</a>
+            <a href="#" class="btn">삭제</a>
+            <a href="./list.html" class="btn">목록</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        name: "view",
+        data: function () {
+          return {
+            book: {},
+          };
+        },
+        created() {
+          const params = new URL(document.location).searchParams;
+          let tempBook = localStorage.getItem(params.get("isbn"));
+          this.book = JSON.parse(tempBook);
+          console.log(this.book);
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

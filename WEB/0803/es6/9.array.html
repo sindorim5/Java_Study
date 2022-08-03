@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // javascript array 추가 삭제함수
+      //배열추가. push(), unshift(), splice()
+      let tempArray = ["a", "b", "c"];
+      console.log("tempArray:" + tempArray);
+
+      tempArray.push("d"); // 배열의 끝에 추가
+      console.log("push('d') :" + tempArray); // a, b, c, d
+
+      tempArray.unshift("x"); // 배열의 앞쪽에 추가
+      console.log("unshift('x') :" + tempArray); // x, a, b, c, d
+
+      tempArray.splice(2, 0, "y"); // index 2 위치에 요소를 삽입. index 0부터시작.
+      console.log("splice(2, 0, 'y') :" + tempArray); //x, a, y, b, c, d
+
+      // 삭제 : pop(), shift(), splice()
+      let popped = tempArray.pop(); // 마지막 요소를 삭제. 삭제한 값 리턴
+      console.log("pop() :" + tempArray + ", 제거된 요소 : " + popped); // x,a,y,b,c, 제거된 요소 : d
+
+      let shifted = tempArray.shift(); //첫번째 요소를 삭제, 삭제한 값 리턴
+      console.log("shift() :" + tempArray + ", 제거된 요소 : " + shifted); // a,y,b,c, 제거된 요소 : x
+
+      let removed = tempArray.splice(1, 1); // index 1 부터 1개의 요소를 삭제, 삭제한 값 리턴
+      console.log("splice() :" + tempArray + ", 제거된 요소 : " + removed); // a, b, c, 제거된 요소 : y
+
+      //delete
+      let deleted = delete tempArray[1]; //삭제하고, 삭제된 자리는 빈채로 둔다. 결과 true/false리턴.
+      console.log("delete() :" + tempArray + ", 결과 : " + deleted); // a, undefined, c, 결과 : true
+      console.log(tempArray[1]);
+    </script>
+  </head>
+  <body></body>
+</html>

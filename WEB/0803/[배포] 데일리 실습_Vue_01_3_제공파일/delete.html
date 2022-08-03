@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서관리</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="header">
+        <a href="index.html"> <img src="./img/ssafy_logo.png" class="ssafy_logo" /></a>
+        <p class="logo">도서관리</p>
+      </div>
+      <div>
+        <h1>SSAFY 도서 삭제</h1>
+        <div>삭제중...</div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        name: "delete",
+        created() {
+          // url에서 파라미터정보 얻어서 삭제. 이후 list로 이동.
+
+
+
+          // alert("삭제가 완료되었습니다.");
+          // // list.html 페이지로 이동.
+          // location.href = "./list.html";
+        }
+      });
+    </script>
+  </body>
+</html>
