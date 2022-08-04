@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script>
+      // 객체 생성하기
+      const promise = new Promise((resolve, reject) => {
+        //async로 수행할.. 시간이 소요되는 작업 수행..
+        setTimeout( function() {
+          console.log('Promise');
+          resolve('resolve'); // >> then 부분 실행
+          // reject('reject'); // >> catch 부분 실행
+        }, 3000)
+      });
+
+      promise
+        .then((data) => {
+          console.log("promise.then", data);
+          document.getElementById("div").innerHTML="promise 호출 성공"
+        })
+        .catch((data) => {
+          console.log("promise.catch", data);
+        });
+    </script>
+  </head>
+  <body>
+    AXIOS 예제 
+    <div id="div"></div>
+  </body>
+</html>
