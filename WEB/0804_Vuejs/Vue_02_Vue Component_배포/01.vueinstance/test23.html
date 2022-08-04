@@ -11,16 +11,17 @@
       <div>
         <input type="text" v-model="a" />
       </div>
+      <div>{{a}}</div>
     </div>
     <script>
       var vm = new Vue({
-        el: '#app',
+        el: "#app",
         data: {
           a: 1,
         },
         watch: {
           a: function (val, oldVal) {
-            console.log('new: %s, old: %s', val, oldVal);
+            console.log("new: %s, old: %s", val, oldVal);
           },
         },
       });

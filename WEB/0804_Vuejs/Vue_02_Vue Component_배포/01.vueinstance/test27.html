@@ -13,15 +13,15 @@
     </div>
     <script>
       new Vue({
-        el: '#app',
+        el: "#app",
         methods: {
           greet1: function (msg) {
-            alert('Hello ' + msg + '!');
+            alert("Hello " + msg + "!");
             console.dir(event.target);
           },
           greet2: function (e, msg) {
-            if (e) e.preventDefault();
-            alert('Hello ' + msg + '!');
+            //if (e) e.preventDefault();
+            alert("Hello " + msg + "!");
             console.dir(e.target);
           },
         },

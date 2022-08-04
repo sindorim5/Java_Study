@@ -8,7 +8,9 @@
   </head>
   <body>
     <div id="app">
-      <my-comp></my-comp>
+      <template>
+        <my-comp-test></my-comp-test>
+      </template>
     </div>
     <template id="MyCompTemp">
       <div>
@@ -17,25 +19,36 @@
     </template>
     <script>
       // data 객체로 설정할 경우의 문제 확인하기 - 콘솔
-      
-    // Vue.component('MyComp', {
-    //     template: '#MyCompTemp',
-    //     data: {
-    //         msg: "hello component"
-    //     }
-    // });
-    
-      Vue.component('MyComp', {
-        template: '#MyCompTemp',
+
+      // Vue.component('MyComp', {
+      //     template: '#MyCompTemp',
+      //     data: {
+      //         msg: "hello component"
+      //     }
+      // }); -> error
+
+      Vue.component("MyComp", {
+        template: "#MyCompTemp",
         data() {
           return {
-            msg: 'hello component',
+            msg: "hello component",
+          };
+        },
+      });
+
+      Vue.component("MyCompTest", {
+        template: `<div>
+        <h2>{{msg}}</h2>
+        </div>`,
+        data() {
+          return {
+            msg: "hello component",
           };
         },
       });
 
       new Vue({
-        el: '#app',
+        el: "#app",
       });
     </script>
   </body>

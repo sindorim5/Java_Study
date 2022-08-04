@@ -15,33 +15,37 @@
   <body>
     <div id="app">
       <ul>
-        <li :class="{completed: false}" :style="myStyle" v-for="todo in todos">
-          {{todo.msg}} 
+        <li :class="{completed: todo.done}" :style="myStyle" v-for="todo in todos">
+          {{todo.msg}}
           <button @click="complete(todo)" class="btn">완료</button>
         </li>
       </ul>
     </div>
     <script>
       new Vue({
-        el: '#app',
+        el: "#app",
         data: {
           todos: [
             {
-              msg: '5시간 잠자기',
+              msg: "5시간 잠자기",
+              done: false,
             },
             {
-              msg: '알고리즘 1시간 공부하기',
+              msg: "알고리즘 1시간 공부하기",
+              done: false,
             },
             {
-              msg: 'Vue 1시간 공부하기',
+              msg: "Vue 1시간 공부하기",
+              done: false,
             },
           ],
           myStyle: {
-            fontSize: '20px',
+            fontSize: "20px",
           },
         },
         methods: {
           complete: function (todo) {
+            todo.done = !todo.done;
           },
         },
       });
