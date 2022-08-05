@@ -26,41 +26,34 @@ export default {
       </tbody>
     </table>
     <p>
-      <router-link :to="'/book/update/' + book.isbn">수정</router-link>
-      <a href="#" @click="deleteBook">삭제</a>
+      <router-link :to="{name: 'update'}">수정</router-link>
+      <router-link :to="{name: 'book'}">삭제</router-link>
       <router-link :to="{name: 'book'}">목록</router-link>
     </p>
   </div>
   `,
   data() {
     return {
-      book: {},
       books: [],
-      isbn: ""
+      book: {},
     };
   },
   methods: {
     getBook() {
       axios
-        .get("http://127.0.0.1:9999/vuews/book/" + this.isbn)
+        .get("http://127.0.0.1:9999/vuews/book")
         .then((response) => {
-          this.book = response.data;
+          this.books = response.data;
+          for (var i = 0; i < this.books.length; i++) {
+            if (this.isbn === this.books[i].isbn) {
+              this.book = this.books[i];
+            }
+          }
         })
         .catch((error) => {
           console.dir(error);
         });
     },
-    deleteBook() {
-      axios
-        .delete("http://127.0.0.1:9999/vuews/book/" + this.isbn)
-        .then((response) => {
-          alert("삭제 성공");
-          location.href = "./index.html#/book/list"
-        })
-        .catch((error) => {
-          console.dir(error);
-        });
-    }
   },
   created() {
     this.isbn = this.$route.params.isbn;

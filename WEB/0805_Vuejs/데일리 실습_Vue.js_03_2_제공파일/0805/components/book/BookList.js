@@ -2,7 +2,7 @@ export default {
   template: `
   <div>
     <h3>도서 목록</h3>
-    <button id="registBtn" v-on:click="moveWrite">도서 등록</button>
+    <button id="updateBtn">도서 등록</button>
     <div>
       <table style="text-align: center" border="1" style="border-collapse: collapse;">
         <colgroup>
@@ -50,9 +50,6 @@ export default {
           console.dir(error);
         });
     },
-    moveWrite() {
-      location.href = "./index.html#/book/write"
-    }
   },
   created() {
     this.getAllBooks();
