@@ -31,7 +31,7 @@ const router = new VueRouter({
           component: BookView,
         },
         {
-          path: "update",
+          path: "update/:isbn",
           name: "update",
           component: BookUpdate,
         },
