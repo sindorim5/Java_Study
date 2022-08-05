@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>vue xml</title>
+    <style type="text/css">
+      table {
+        width: 300px;
+        height: 100px;
+        border-collapse: collapse;
+        border: 1px solid blue;
+      }
+      tr,
+      th,
+      td {
+        border: 1px solid blue;
+        text-align: center;
+      }
+    </style>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- faster-xml-parser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.19.0/parser.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h3>SSAFY 분반</h3>
+      <button id="listBtn" v-on:click="makeList()">학생정보보기</button>
+      <table>
+        <tr>
+          <th>학번</th>
+          <th>이름</th>
+          <th>분반</th>
+          <th>성적</th>
+        </tr>
+        <tbody id="studentinfo">
+          <tr v-for="student in studentList">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.class}}</td>
+            <td>{{student.grade}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            studentList: [],
+          };
+        },
+        methods: {
+          makeList() {
+            axios
+              .get("http://localhost:8080/AjaxProject/chap1/1-06xml.jsp")
+              .then((response) => {
+                // console.log(response.data);
+                let xml = response.data;
+                if (parser.validate(xml)) {
+                  // is valid xml
+                  let json = parser.parse(xml); //xml --> json
+                  this.studentList = json.students.student;
+                }
+              })
+              .catch((error) => {
+                console.dir(error);
+              });
+          },
+        },
+        created() {
+          axios;
+          // .get("http://localhost:8080/AjaxProject/chap1/1-06xml.jsp")
+          // .then((response) => {
+          //   console.log(response.data);
+          //   let xml = response.data;
+          //   if(parser.validate(xml)){ // is valid xml
+          //     let json = parser.parse(xml); //xml --> json
+          //     this.studentList = json.students.student
+          //     // console.log(json.students.student)
+          //   }
+          // })
+          // .catch((error) => {
+          //   console.dir(error);
+          // });
+        },
+      });
+    </script>
+  </body>
+</html>
