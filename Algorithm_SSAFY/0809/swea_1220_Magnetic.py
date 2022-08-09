@@ -21,4 +21,4 @@ for test_case in range(1, T + 1):
                 count += 1
             y += 1
 
-    print(f"#{test_case} {count}")
+    print("#{} {}".format(test_case, count))
