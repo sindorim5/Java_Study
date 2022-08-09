@@ -15,4 +15,5 @@ for test_case in range(1, T + 1):
     for (index, value) in enumerate(count):
         if max(count) == count[index]:
             result.append(index)
-    print(f"#{N} {result[-1]}")
+
+    print("#{} {}".format(test_case, result[-1]))

@@ -18,4 +18,5 @@ for test_case in range(1, T + 1):
 
         if left1 > 0 and left2 > 0 and right1 > 0 and right2 > 0:
             count += min(left1, left2, right1, right2)
-    print(f"#{test_case} {count}")
+
+    print("#{} {}".format(test_case, count))

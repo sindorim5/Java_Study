@@ -32,4 +32,4 @@ for test_case in range(1, T + 1):
         sum += matrix[i][99 - i]
     maxSum = max(maxSum, sum)
 
-    print(f"#{test_case} {maxSum}")
+    print("#{} {}".format(test_case, maxSum))

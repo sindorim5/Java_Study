@@ -25,4 +25,4 @@ for test_case in range(1, T + 1):
             y -= 1
             flag = 0
 
-    print(f"#{N} {x}")
+    print("#{} {}".format(N, x))
