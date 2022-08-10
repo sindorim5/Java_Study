@@ -1,5 +1,4 @@
 import sys
-from collections import deque
 
 sys.stdin = open("input.txt", "r")
 input = sys.stdin.readline
@@ -12,12 +11,12 @@ for test_case in range(1, T + 1):
     count = 0
     for i in range(N):
         y, x = 0, i
-        q = deque()
+        flag = 0
         while y < N:
-            if not q and matrix[y][x] == 1:
-                q.append(1)
-            elif q and matrix[y][x] == 2:
-                q.popleft()
+            if not flag and matrix[y][x] == 1:
+                flag = 1
+            elif flag and matrix[y][x] == 2:
+                flag = 0
                 count += 1
             y += 1
 
