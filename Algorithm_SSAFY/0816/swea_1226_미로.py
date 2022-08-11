@@ -1,11 +1,13 @@
 import sys
 from collections import deque
+
 sys.stdin = open(
-    "C:/SSAFY/clone/Algorithm_SSAFY/0816/input_1226.txt", "r", encoding='utf-8')
+    "C:/SSAFY/clone/Algorithm_SSAFY/0816/input_1226.txt", "r", encoding="utf-8"
+)
 
 T = 10
 
-for test_case in range(1, T+1):
+for test_case in range(1, T + 1):
     n = int(input())
     matrix = []
     mapSize = 16
@@ -41,7 +43,7 @@ for test_case in range(1, T+1):
         for i in range(4):
             nY = y + dy[i]
             nX = x + dx[i]
-            if (0 <= nY < mapSize and 0 <= nX < mapSize):
+            if 0 <= nY < mapSize and 0 <= nX < mapSize:
                 if matrix[nY][nX] == 0 or matrix[nY][nX] == 3:
                     q.append((nY, nX))
 
