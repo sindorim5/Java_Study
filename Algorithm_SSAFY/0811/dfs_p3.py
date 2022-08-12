@@ -19,7 +19,6 @@ def dfs(n):
     result.append(n)
     for i in link[n]:
         if visited[i] == False:
-            print(result)
             dfs(i)
 
 

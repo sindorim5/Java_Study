@@ -1,7 +1,7 @@
 import sys
 
 sys.stdin = open(
-    "0812/input_1224.txt",
+    "/Users/song/code/SSAFY_CODES/Algorithm_SSAFY/0812/input_1224.txt",
     "r",
     encoding="utf-8",
 )
@@ -22,13 +22,13 @@ for test_case in range(1, T + 1):
         else:
             if c == "(":
                 stack.append(c)
-            elif c == "*":
+            elif c == "*" or c == "/":
                 # 우선 순위가 낮은 연산자가 나올 때까지 pop
-                while stack and stack[-1] == "*":
+                while stack and (stack[-1] == "*" or stack[-1] == "/"):
                     result.append(stack.pop())
                 # 나왔으니 stack에 넣어줌
                 stack.append(c)
-            elif c == "+":
+            elif c == "+" or c == "-":
                 # 우선 순위가 낮은 연산자가 나올 때까지 pop
                 while stack and stack[-1] != "(":
                     result.append(stack.pop())
@@ -56,7 +56,11 @@ for test_case in range(1, T + 1):
             b = calStack.pop()
             if c == "+":
                 calStack.append(a + b)
+            elif c == "-":
+                calStack.append(a - b)
             elif c == "*":
                 calStack.append(a * b)
+            elif c == "/":
+                calStack.append(a // b)
 
     print("#{} {}".format(test_case, calStack[0]))
