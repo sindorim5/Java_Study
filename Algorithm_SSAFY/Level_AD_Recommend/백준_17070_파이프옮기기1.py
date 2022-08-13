@@ -1,46 +1,46 @@
+# pypy로 제출
 import sys
 
-sys.stdin = open("input.txt", "r", encoding="utf-8")
-
+sys.stdin = open("./input.txt", "r", encoding="utf-8")
+input = sys.stdin.readline
 n = int(input())
 matrix = [list(map(int, input().split())) for _ in range(n)]
-start = ((0, 0), (0, 1))
-
-result = []
 
 
-def dfs(pipeArr, status):
-    y1, x1 = pipeArr[0][0], pipeArr[0][1]
-    y2, x2 = pipeArr[1][0], pipeArr[1][1]
+def dfs(x, y, status):
+    global count
 
-    if matrix[y1][x1] == 0 and matrix[y2][x2] == 0 and y2 == n-1 and x2 == n-1:
-        result.append(1)
-        return
+    if matrix[y][x] == 0 and y == n - 1 and x == n - 1:
+        count += 1
+        # return    들어가면 시간초과
 
     if status == 0 or status == 2:
-        nY2 = y2
-        nX2 = x2 + 1
-        if 0 <= nY2 < n and 0 <= nX2 < n and matrix[nY2][nX2] == 0:
-            temp = ((y2, x2), (nY2, nX2))
-            dfs(temp, 0)
+        nY = y
+        nX = x + 1
+        if 0 <= nY < n and 0 <= nX < n and matrix[nY][nX] == 0:
+            dfs(nX, nY, 0)
     if status == 1 or status == 2:
-        nY2 = y2 + 1
-        nX2 = x2
-        if 0 <= nY2 < n and 0 <= nX2 < n and matrix[nY2][nX2] == 0:
-            temp = ((y2, x2), (nY2, nX2))
-            dfs(temp, 1)
+        nY = y + 1
+        nX = x
+        if 0 <= nY < n and 0 <= nX < n and matrix[nY][nX] == 0:
+            dfs(nX, nY, 1)
 
-    nY2 = y2 + 1
-    nX2 = x2 + 1
-    if (0 <= nY2 < n and 0 <= nX2 < n
-            and matrix[nY2][nX2] == 0
-            and matrix[nY2][x2] == 0
-            and matrix[y2][nX2] == 0
-        ):
-        temp = ((y2, x2), (nY2, nX2))
-        dfs(temp, 2)
+    nY = y + 1
+    nX = x + 1
+    if (
+        0 <= nY < n
+        and 0 <= nX < n
+        and matrix[nY][nX] == 0
+        and matrix[nY][x] == 0
+        and matrix[y][nX] == 0
+    ):
+        dfs(nX, nY, 2)
 
 
-dfs(start, 0)
+count = 0
+dfs(1, 0, 0)
 
-print(sum(result))
+print(count)
+
+# DP 풀이법
+# https://bit.ly/3QGoKuQ
