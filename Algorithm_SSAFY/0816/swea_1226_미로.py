@@ -1,9 +1,7 @@
 import sys
 from collections import deque
 
-sys.stdin = open(
-    "C:/SSAFY/clone/Algorithm_SSAFY/0816/input_1226.txt", "r", encoding="utf-8"
-)
+sys.stdin = open("0816/input_1226.txt", "r", encoding="utf-8")
 
 T = 10
 
