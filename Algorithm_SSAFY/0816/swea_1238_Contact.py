@@ -27,5 +27,4 @@ for test_case in range(1, T + 1):
                 q.append((nowDepth + 1, child))
 
     callList.sort(key=lambda x: (x[0], x[1]))
-    print(callList)
     print("#{} {}".format(test_case, callList[-1][1]))

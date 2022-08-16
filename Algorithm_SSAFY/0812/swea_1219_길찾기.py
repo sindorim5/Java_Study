@@ -29,11 +29,9 @@ for test_case in range(1, T+1):
                 continue
             for a in arr[e]:
                 q.append(a)
-            print(q)
         return i
 
     result = bfs(99)
-    print(result)
 
     if result > 0:
         result = 1
