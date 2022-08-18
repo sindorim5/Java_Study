@@ -1,6 +1,5 @@
 import sys
 from collections import deque
-
 sys.stdin = open(
     "C:/SSAFY/clone/Algorithm_SSAFY/0817/6109_input.txt", "r", encoding="utf-8")
 
@@ -26,7 +25,7 @@ for test_case in range(1, T+1):
                     inputList.append(matrix[y][x])
                 elif tempQ[-1] == matrix[y][x]:
                     inputList[-1] = tempQ[-1] * 2
-                    tempQ.popleft()
+                    tempQ.clear()
                 else:
                     tempQ.append(matrix[y][x])
                     inputList.append(matrix[y][x])
@@ -47,7 +46,7 @@ for test_case in range(1, T+1):
                     inputList.append(matrix[y][x])
                 elif tempQ[-1] == matrix[y][x]:
                     inputList[-1] = tempQ[-1] * 2
-                    tempQ.popleft()
+                    tempQ.clear()
                 else:
                     tempQ.append(matrix[y][x])
                     inputList.append(matrix[y][x])
@@ -68,10 +67,12 @@ for test_case in range(1, T+1):
                     inputList.append(matrix[y][x])
                 elif tempQ[-1] == matrix[y][x]:
                     inputList[-1] = tempQ[-1] * 2
-                    tempQ.popleft()
+                    tempQ.clear()
                 else:
                     tempQ.append(matrix[y][x])
                     inputList.append(matrix[y][x])
+                print(y, matrix[y][x])
+
             while len(inputList) < n:
                 inputList.append(0)
             for i in range(n-1, -1, -1):
@@ -89,7 +90,7 @@ for test_case in range(1, T+1):
                     inputList.append(matrix[y][x])
                 elif tempQ[-1] == matrix[y][x]:
                     inputList[-1] = tempQ[-1] * 2
-                    tempQ.popleft()
+                    tempQ.clear()
                 else:
                     tempQ.append(matrix[y][x])
                     inputList.append(matrix[y][x])

@@ -1,13 +1,9 @@
 DFS, BFS
+1. https://www.acmicpc.net/problem/2667 단지번호붙이기
 2. https://www.acmicpc.net/problem/2468 안전 영역
 3. https://www.acmicpc.net/problem/2636 치즈
 4. https://www.acmicpc.net/problem/2573 빙산
 5. https://www.acmicpc.net/problem/2589 보물섬
-
-1. https://www.acmicpc.net/problem/2667 단지번호붙이기
-
-
-
 
 기출문제
 1. https://www.acmicpc.net/problem/14889 스타트와 링크

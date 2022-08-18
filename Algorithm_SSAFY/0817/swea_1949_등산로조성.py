@@ -1,6 +1,4 @@
 import sys
-import copy
-from collections import deque
 
 sys.stdin = open("0817/1949_input.txt", "r", encoding="utf-8")
 
