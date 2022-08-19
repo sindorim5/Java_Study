@@ -17,6 +17,23 @@ def combination(arr, r):
     generate([])
 
 
+def combi(numList, targetNum):
+    global result
+
+    def combination(idx, nowCombi):
+        if len(nowCombi) == targetNum:
+            result.append(nowCombi)
+            return
+        for i in range(idx, len(numList)):
+            combination(i + 1, nowCombi + [numList[i]])
+
+    combination(0, [])
+
+    return result
+
+# 순열
+
+
 def permutation(arr, r):
     # 1.
     arr = sorted(arr)
@@ -37,3 +54,20 @@ def permutation(arr, r):
                 used[i] = 0
                 chosen.pop()
     generate([], used)
+
+
+def dfs(nums, depth, targetNum, temp):
+    global result
+    visited = [False for _ in range(len(nums))]
+    if depth == targetNum:
+        result.append(temp[:])
+        return
+
+    for i in range(len(nums)):
+        if visited[i] == True:
+            continue
+        temp.append(nums[i])
+        visited[i] = True
+        dfs(depth + 1, temp)
+        temp.pop()
+        visited[i] = False

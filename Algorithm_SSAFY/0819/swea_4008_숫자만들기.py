@@ -36,7 +36,7 @@ for test_case in range(1, T + 1):
     n = int(input())
     opList = list(map(int, input().split()))
     numList = list(map(int, input().split()))
-    maxValue = -sys.maxsize - 1
-    minValue = sys.maxsize
+    maxValue = -9999999999
+    minValue = 9999999999
     dfs(0, numList[0])
     print("#{} {}".format(test_case, maxValue - minValue))

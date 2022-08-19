@@ -15,13 +15,13 @@ def dfs(y, x, path, flag):
         # 영역을 벗어나면 continue
         if nY < 0 or nY >= n or nX < 0 or nX >= n:
             continue
-        if visited[nY][nX] == 1:
+        if visited[nY][nX] == True:
             continue
         # 이동
         if matrix[y][x] > matrix[nY][nX]:
-            visited[nY][nX] = 1
+            visited[nY][nX] = True
             dfs(nY, nX, path + 1, flag)
-            visited[nY][nX] = 0
+            visited[nY][nX] = False
         # 이동이 불가능하지만 공사를 안한 경우
         elif matrix[y][x] <= matrix[nY][nX] and not flag:
             # 공사할 수 있는 모든 경우
@@ -29,9 +29,9 @@ def dfs(y, x, path, flag):
                 matrix[nY][nX] -= i
                 flag = True
                 if matrix[y][x] > matrix[nY][nX]:
-                    visited[nY][nX] = 1
+                    visited[nY][nX] = True
                     dfs(nY, nX, path + 1, flag)
-                    visited[nY][nX] = 0
+                    visited[nY][nX] = False
                 # 공사 취소하기 -> 다른 경우를 체크하기 위해
                 flag = False
                 matrix[nY][nX] += i

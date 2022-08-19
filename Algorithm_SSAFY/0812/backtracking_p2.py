@@ -3,8 +3,6 @@
 visited = [False for _ in range(11)]
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-
 n = 10
 
 check = [0] * (n + 1)
