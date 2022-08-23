@@ -4,12 +4,24 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="bookService" class="com.ssafy.ws.model.service.BookServiceImpl">
+        <property name="bookRepo" ref="bookRepo"></property>
+    </bean>
+    
+    <bean id="bookRepo" class="com.ssafy.ws.model.repo.BookRepoImpl">
+    </bean>
+    
+    <bean id="userRepo" class="com.ssafy.ws.model.repo.UserRepoImpl">
     </bean>
     
     <bean id="userService" class="com.ssafy.ws.model.service.UserServiceImpl">
+        <constructor-arg ref="userRepo"></constructor-arg>
     </bean>
 
-    <bean id="bookRepoImpl" class="com.ssafy.ws.model.repo.BookRepoImpl">
+    <bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/ssafy_spring_ws?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8"></property>
+        <property name="username" value="ssafy"></property>
+        <property name="password" value="ssafy"></property>
     </bean>
 
 </beans>

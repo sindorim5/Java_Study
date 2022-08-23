@@ -9,7 +9,7 @@ DFS, BFS
 5. https://www.acmicpc.net/problem/16234 인구이동
 6. https://www.acmicpc.net/problem/14888 연산자끼워넣기
 9. https://www.acmicpc.net/problem/15683 감시
-10. https://www.acmicpc.net/problem/17471 게리맨더링
+
 
 1. https://www.acmicpc.net/problem/14889 스타트와 링크
 2. https://www.acmicpc.net/problem/14501 퇴사
@@ -18,3 +18,4 @@ DFS, BFS
 
 7. https://www.acmicpc.net/problem/17070 파이프 옮기기1
 8. https://www.acmicpc.net/problem/17135 캐슬디펜스
+10. https://www.acmicpc.net/problem/17471 게리맨더링

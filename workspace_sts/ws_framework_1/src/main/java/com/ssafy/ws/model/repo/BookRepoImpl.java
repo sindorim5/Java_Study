@@ -1,25 +1,16 @@
-package com.ssafy.ws.model.service;
+package com.ssafy.ws.model.repo;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.ssafy.ws.model.Book;
-import com.ssafy.ws.model.repo.BookRepo;
-import com.ssafy.ws.model.repo.BookRepoImpl;
 
-public class BookServiceImpl implements BookService {
+@Repository
+public class BookRepoImpl implements BookRepo {
+    
+//    private BookRepoImpl() {}
 
-//    private BookServiceImpl() {};
-    
-    private BookRepo bookRepo;
-    
-    public void setBookRepo(BookRepo bookRepo) {
-        this.bookRepo = bookRepo;
-    }
-    
-    public BookRepo getBookRepo() {
-        return bookRepo;
-    }
-    
     @Override
     public int insert(Book book) {
         // TODO Auto-generated method stub
@@ -50,9 +41,4 @@ public class BookServiceImpl implements BookService {
         return null;
     }
 
-
-
-    
-    
-    
 }
