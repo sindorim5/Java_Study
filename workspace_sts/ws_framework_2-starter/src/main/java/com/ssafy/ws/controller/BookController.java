@@ -77,10 +77,10 @@ public class BookController {
 	            String id = userDto.getId();
 	            String pass = userDto.getPass();
 	            if (id.equals("ssafy") && pass.equals("1234")) {
+//	                logger.debug("id: {}", id);
+//	                logger.debug("pw: {}", pass);
+//	                logger.debug("na: {}", userDto.getName());
 	                userDto.setName("김싸피");
-	                logger.debug("id: {}", id);
-	                logger.debug("pw: {}", pass);
-	                logger.debug("na: {}", userDto.getName());
 	                session.setAttribute("loginUser", userDto);               
 	            } else {
 	                model.addAttribute("msg", "로그인 실패");
@@ -143,7 +143,6 @@ public class BookController {
 	 */
 	@PostMapping("/regist")
 	public String doRegist(@ModelAttribute Book book) {
-
 		return "regist_result";
 	}
 	
