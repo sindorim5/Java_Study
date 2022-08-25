@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.mybatis">
+    <select id="selectGuestBook" parameterType="int" resultType="com.ssafy.mybatis.GuestBookDto">
+        select * from guestbook where articleno = #{id}
+    </select>
+
+    <insert id="writeGuestBook" parameterType="com.ssafy.mybatis.GuestBookDto" useGeneratedKeys="true" keyProperty="articleno">
+        insert into guestbook (userid, subject, content)
+        values (#{userid}, #{subject}, #{content})
+    </insert>
+    
+    <select id="selectUserGuestBook" parameterType="string" resultType="com.ssafy.mybatis.GuestBookDto">
+        select * from guestbook where userid = #{userid}    
+    </select>
+</mapper>
