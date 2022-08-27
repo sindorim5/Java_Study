@@ -13,7 +13,6 @@ dx = [1, -1, 0, 0]
 count = 0
 changeList = []
 
-
 def bfs(y, x):
     q = deque()
     changeList = [(y,x)]
@@ -47,16 +46,7 @@ while True:
             if L <= abs(matrix[y][x] - matrix[y][x + 1]) <= R or L <= abs(matrix[y][x] - matrix[y + 1][x]) <= R:
                 bfs(y, x)
                 temp += 1
-    
+
     if L <= abs(matrix[N-1][N-1] - matrix[N-1][N-2]) <= R or L <= abs(matrix[N-1][N-1] - matrix[N-2][N-1]) <= R:
         bfs(y, x)
         temp += 1
-
-    if temp == 0:
-        break
-    else:
-        count += temp
-    
-
-
-print(count)
