@@ -23,17 +23,16 @@ import com.ssafy.ws.model.service.BookService;
 @CrossOrigin("*")
 public class BookRestController {
     private static final Logger logger = LoggerFactory.getLogger(BookRestController.class);
-    
+
     @Autowired
     private BookService bookService;
-    
+
     @GetMapping("/book")
     public List<Book> selectAll() {
         List<Book> bookList = bookService.search();
         return bookList;
     }
-    
-    
+
     @GetMapping("/book/{isbn}")
     public Book selectBook(@PathVariable String isbn) {
         logger.info(isbn);
@@ -41,26 +40,25 @@ public class BookRestController {
         logger.info("book: {}", dto);
         return dto;
     }
-    
+
     @PostMapping("/book")
     public int insertBook(@RequestBody Book book) {
         logger.info("book: {}", book);
         int temp = bookService.insert(book);
         return temp;
     }
-    
+
     @PutMapping("/book")
     public int modifyBook(@RequestBody Book book) {
         logger.info("book: {}", book);
         int temp = bookService.update(book);
         return temp;
     }
-    
+
     @DeleteMapping("/book/{isbn}")
     public int deleteUser(@PathVariable String isbn) {
         int temp = bookService.delete(isbn);
         return temp;
     }
-    
-    
+
 }
