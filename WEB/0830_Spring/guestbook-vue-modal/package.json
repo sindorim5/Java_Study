@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port 8000",
-    "build": "vue-cli-service build --dest C:/SSAFY/workspace/sts/guestbook_rest_starter/src/main/webapp/resources",
+    "build": "vue-cli-service build --dest C:/SSAFY/clone/workspace_sts/S_4_2_guestbook_rest_starter/src/main/webapp/resources",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

@@ -50,5 +50,11 @@ public class GuestBookDto {
     public void setRegtime(String regtime) {
         this.regtime = regtime;
     }
+    
+    @Override
+    public String toString() {
+        return "GuestBookDto [articleno=" + articleno + ", userid=" + userid + ", subject=" + subject + ", content="
+                + content + ", regtime=" + regtime + "]";
+    }
 
 }
