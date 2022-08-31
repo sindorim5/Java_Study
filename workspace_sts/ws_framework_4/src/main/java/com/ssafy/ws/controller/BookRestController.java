@@ -56,7 +56,7 @@ public class BookRestController {
     }
 
     @DeleteMapping("/book/{isbn}")
-    public int deleteUser(@PathVariable String isbn) {
+    public int deleteBook(@PathVariable String isbn) {
         int temp = bookService.delete(isbn);
         return temp;
     }

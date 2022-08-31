@@ -77,8 +77,8 @@ public class GuestBookServiceImpl implements GuestBookService {
 
     @Override
     public void modifyArticle(GuestBookDto guestBookDto) throws Exception {
-        sqlSession.getMapper(GuestBookDao.class).modifyArticle(guestBookDto);
-//        dao.modifyArticle(guestBookDto);
+//        sqlSession.getMapper(GuestBookDao.class).modifyArticle(guestBookDto);
+        dao.modifyArticle(guestBookDto);
     }
 
     @Override
