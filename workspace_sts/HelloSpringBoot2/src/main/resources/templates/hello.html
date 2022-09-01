@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${msg}"></h1>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>글번호</th>
+	      <th>userid</th>
+	      <th>subject</th>
+	      <th>content</th>
+   	      <th>등록시간</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr th:each="guestbook: ${guestbookDto}">
+	      <td th:text="${guestbook.articleno}"></td>
+	      <td th:text="${guestbook.userid}"></td>
+   	      <td th:text="${guestbook.subject}"></td>
+   	      <td th:text="${guestbook.content}"></td>
+   	      <td th:text="${guestbook.regtime}"></td>
+	    </tr>
+	  </tbody>
+	</table>
+</body>
+</html>

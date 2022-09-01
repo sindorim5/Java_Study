@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+	axios
+	.get("http://localhost:8080/hello")
+	.then((response) => {
+		alert(response.data)
+		console.log(response)
+	})
+	.catch((error) => {
+		alert("fail")
+		console.log(error)
+	});
+</script>
+</head>
+<body>
+	<h1> 18080 서버입니다 </h1>
+</body>
+</html>

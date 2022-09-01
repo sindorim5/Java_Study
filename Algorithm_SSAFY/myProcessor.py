@@ -36,7 +36,22 @@ for test_case in range(1, T+1):
                 direction[i] = length
         return direction
 
+    def connect(y, x, d):
+        nY, nX = y, x
+        while 0 < nY < n - 1 and 0 < nX < n - 1:
+            nY += dy[d]
+            nX += dx[d]
+            matrix[nY][nX] ^= 1
+
     def check(depth, nowLine, nowConnected):
         y, x = coreList[depth][0], coreList[depth][1]
+        direction = lineCheck(y, x)
+        for d in range(4):
+            if direction[d] == 0:
+                continue
+            connect(y, x, d)
+            check(depth + 1, nowLine + direction[d], nowConnected + 1)
+            connect(y, x, d)
+        check(depth + 1, nowLine, nowConnected)
 
     print("#{} {}".format(test_case, minLine))
