@@ -1,11 +1,13 @@
 package com.ssafy.hello.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,9 @@ public class HelloController {
 
     @Autowired
     GuestBookService service;
+    
+    @Autowired
+    MessageSource messageSource;
 
     @GetMapping("/list")
     @ResponseBody
@@ -31,10 +36,13 @@ public class HelloController {
     }
     
     @GetMapping("/hello")
-    public String hello(Model model) {
+    public String hello(Locale locale, Model model) {
+        
+        String msg = messageSource.getMessage("hello", new String[] {locale.getDisplayName()}, locale);
+        
         List<GuestBookDto> dto = service.listArticle();
 
-        model.addAttribute("msg", "안녕? Thymeleaf");
+        model.addAttribute("msg", "안녕? Thymeleaf " + msg);
         model.addAttribute("guestbookDto", dto);
         return "hello";
     }
