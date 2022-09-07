@@ -1,7 +1,6 @@
 import sys
 
 sys.stdin = open("./0907/최대상금.txt", "r", encoding="UTF-8")
-# sys.setrecursionlimit = 10**9
 T = int(input())
 
 
@@ -24,14 +23,12 @@ def dfs(depth, arr):
             if (temp, depth) not in resultList:
                 resultList.append((temp, depth))
                 dfs(depth+1, arr)
-                arr[i], arr[j] = arr[j], arr[i]
+            arr[i], arr[j] = arr[j], arr[i]
 
 
 for test_case in range(1, T+1):
     numList, change = map(int, input().split())
     numList = list(str(numList))
-    maxList = numList[:]
-    maxList.sort(reverse=True)
     resultList = []
     result = -999999999
     dfs(0, numList)

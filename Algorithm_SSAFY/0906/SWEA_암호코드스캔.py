@@ -1,7 +1,7 @@
 import sys
 
 # sys.stdin = open("0906/암호코드스캔.txt", "r", encoding="UTF-8")
-sys.stdin = open("input.txt", "r", encoding="UTF-8")
+sys.stdin = open("input2.txt", "r", encoding="UTF-8")
 T = int(input())
 
 hex_to_bin = {"0": "0000", "1": "0001", "2": "0010", "3": "0011", "4": "0100",
@@ -46,20 +46,42 @@ def decodeCheck(arr):
     else:
         return 0
 
+def binaryGenerator(arr, multi):
+    binaryArr = []
+    binary = ""
+    for temp in arr:
+        temp = temp.rstrip("0")
+        check = 0
+        binary = ""
+        for i in range(len(temp)-1, -1, -1):
+            binary += temp[i]
+            if temp[i] == "0":
+                check += 1
+            else:
+                check = 0
+            if check == 4:
+                check = 0
+                if len(binary) >= 56:
+                    binaryArr.append(binary[::-1])
+                binary = ""
+        if len(binary) >= 56:
+            binaryArr.append(binary[::-1])
+    return binaryArr
 
-for test_case in range(1, T + 1):
+for test_case in range(1, 2):
     n, m = map(int, input().split())
     # 메모리 초과 때문에 입력과 동시에 변환
     matrix = set(hexToBinary(input().strip()) for _ in range(n))
     matrix = sorted(list(matrix))
     matrix.pop(0)
+    binaryArr = binaryGenerator(matrix)
     if n >= 56:
         multiply = n // 56
     else:
         multiply = 1
     tempResult = 0
     result = 0
-    for binary in matrix:
+    for binary in binaryArr:
         for multi in range(multiply, 0, -1):
             i = 0
             keep = 0
