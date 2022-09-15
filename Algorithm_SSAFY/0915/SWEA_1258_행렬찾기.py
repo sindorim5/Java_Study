@@ -2,13 +2,13 @@ import sys
 from collections import deque
 
 sys.stdin = open("./0915/행렬찾기.txt", "r", encoding="UTF-8")
-# sys.stdin = open("input.txt", "r", encoding="UTF-8")
 
 T = int(input())
 
 # 하, 우
 dy = [1, 0]
 dx = [0, 1]
+
 
 def bfs(y, x):
     global points
@@ -18,7 +18,6 @@ def bfs(y, x):
     visited[y][x] = True
     while q:
         nowY, nowX = q.popleft()
-        flag = 0
         for i in range(2):
             nY = nowY + dy[i]
             nX = nowX + dx[i]
@@ -28,9 +27,10 @@ def bfs(y, x):
                 temp.append([nY, nX])
     points.append([temp[0], temp[-1]])
 
+
 for test_case in range(1, T+1):
     n = int(input())
-    matrix = [list(map(int,input().split())) for _ in range(n)]
+    matrix = [list(map(int, input().split())) for _ in range(n)]
     visited = [[False] * n for _ in range(n)]
     points = []
     result = []
@@ -44,7 +44,7 @@ for test_case in range(1, T+1):
         diffX = abs(point[0][1] - point[1][1]) + 1
         area = diffY * diffX
         result.append([area, diffY, diffX])
-    
+
     result.sort()
 
     print("#{} {}".format(test_case, len(result)), end=" ")
