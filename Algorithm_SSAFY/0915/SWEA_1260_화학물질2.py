@@ -1,6 +1,6 @@
 import sys
 from collections import deque
-sys.stdin = open("0915/화학물질2.txt", "r", encoding="UTF-8")
+sys.stdin = open("화학물질2.txt", "r", encoding="UTF-8")
 
 T = int(input())
 
@@ -27,7 +27,7 @@ def bfs(y, x):
     points.append([temp[0], temp[-1]])
 
 
-for test_case in range(1, 2):
+for test_case in range(1, T+1):
     n = int(input())
     matrix = [list(map(int, input().split())) for _ in range(n)]
     visited = [[False] * n for _ in range(n)]
@@ -64,7 +64,6 @@ for test_case in range(1, 2):
     for conn in connection:
         dimension.append(conn[0])
     dimension.append(connection[-1][1])
-    print(dimension)
     for delta in range(1, size):
         for i in range(size-delta):
             j = i + delta
@@ -72,7 +71,6 @@ for test_case in range(1, 2):
             for k in range(i, j):
                 DP[i][j] = min(DP[i][j], DP[i][k] + DP[k+1][j] +
                                dimension[i-1] * dimension[k] * dimension[j])
-                print(DP)
     print("#{} {}".format(test_case, DP[0][size-1]))
     # Matrix chain multiplication
     # https://blog.naver.com/babobigi/220535210931
