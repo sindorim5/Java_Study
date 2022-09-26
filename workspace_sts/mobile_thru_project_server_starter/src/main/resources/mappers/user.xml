@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 fully qualified name으로 설정한다. -->
+
+<mapper namespace="com.ssafy.cafe.model.dao.UserDao">
+
+    <insert id="insert" parameterType="user">
+        insert into t_user (id, name, pass, stamps)
+        values (#{id}, #{name}, #{pass}, 0)
+    </insert>
+
+    <update id="updateStamp" parameterType="user">
+        update t_user
+        set stamps = #{stamps}
+        where id = #{id}
+    </update>
+
+    <select id="select" parameterType="String" resultType="User">
+        select id, name, pass, stamps from t_user
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from t_user
+        where id = #{id}
+    </delete>
+
+    <select id="selectAll" resultType="User">
+        select id, name, pass, stamps
+        from t_user
+    </select>
+    
+    <update id="update" parameterType="user">
+        update t_user
+        set name = #{name}, pass = #{pass}, stamps = #{stamps}
+        where id = #{id}
+    </update>
+</mapper>

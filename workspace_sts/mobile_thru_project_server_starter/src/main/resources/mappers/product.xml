@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 fully qualified name으로 설정한다. -->
+
+<mapper namespace="com.ssafy.cafe.model.dao.ProductDao">
+	
+	<select id="select" parameterType="string" resultType="product">
+		SELECT * FROM t_product
+		WHERE id = #{id}
+	</select>
+	
+	<select id="selectAll" resultType="product">
+		SELECT * FROM t_product
+	</select>
+	
+	<select id="selectWithComment" parameterType="int" resultType="map">
+		SELECT p.id, p.name, p.type, p.price, p.img, 
+		(select sum(quantity) from t_order_detail where product_id = #{productId} group by product_id) as sells,
+		(select avg(rating) from t_comment where product_id = #{productId}) as avg,
+		c.user_id, c.rating, c.id as commentId, c.comment,
+		(select name from t_user where id = c.user_id) as userName,
+		(select count(*) from t_comment where product_id = #{productId}) as commentCnt
+		FROM t_product p LEFT OUTER JOIN t_comment c
+		ON p.id = c.product_id
+		WHERE p.id = #{productId};
+	</select>
+	
+</mapper>
